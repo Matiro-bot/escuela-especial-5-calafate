@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Tenink Aiken — Escuela Especial. 40 años sembrando inclusión. Conocé nuestra historia, talleres y propuesta pedagógica." />
+<title>Tenink Aiken — 40 Años Sembrando Inclusión</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+<style>
+/* ========================================
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   ======================================== */
+:root {
+  /* Warm Institutional Palette — high contrast ratios */
+  --color-primary: #B84C2A;       /* Terracotta */
+  --color-primary-dark: #8C3518;
+  --color-primary-light: #E8A690;
+  --color-accent: #D4973B;        /* Gold */
+  --color-accent-light: #F5E6C8;
+  --color-teal: #1A6B5A;          /* Deep Teal */
+  --color-teal-light: #E6F2EF;
+  --color-bg: #FDF8F4;            /* Warm cream */
+  --color-bg-alt: #F5EDE6;
+  --color-surface: #FFFFFF;
+  --color-text: #2C1810;          /* Very dark brown — 13.8:1 on cream */
+  --color-text-secondary: #5C4033; /* Medium brown — 7.1:1 on cream */
+  --color-text-on-dark: #FDF8F4;
+  --color-border: #D4C4B8;
+  --color-focus: #1A6B5A;
+
+  /* Typography */
+  --font-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', Tahoma, sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6rem;
+
+  /* Sizing */
+  --max-width: 72rem;
+  --radius: 0.75rem;
+  --radius-lg: 1.25rem;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ========================================
+   RESET & BASE
+   ======================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-teal);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: color 0.2s var(--ease);
+}
+a:hover { color: var(--color-primary); }
+
+/* Focus styles — WCAG compliant visible focus */
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  background: var(--color-teal);
+  color: var(--color-text-on-dark);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius);
+  font-weight: 600;
+  z-index: 1000;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: var(--space-md);
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========================================
+   HEADER / NAV
+   ======================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(253, 248, 244, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  transition: box-shadow 0.3s var(--ease);
+}
+.site-header.scrolled {
+  box-shadow: 0 2px 20px rgba(44,24,16,0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-sm);
+  gap: var(--space-md);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+.logo-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-on-dark);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.logo-tagline {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: transparent;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: var(--color-text);
+  transition: all 0.2s var(--ease);
+}
+.nav-toggle:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.nav-toggle svg { pointer-events: none; }
+
+.nav-toggle[aria-expanded="true"] .icon-menu { display: none; }
+.nav-toggle[aria-expanded="false"] .icon-close,
+.nav-toggle:not([aria-expanded]) .icon-close { display: none; }
+
+/* Navigation */
+.main-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-surface);
+  border-bottom: 2px solid var(--color-border);
+  padding: var(--space-lg);
+  box-shadow: 0 12px 30px rgba(44,24,16,0.1);
+}
+.main-nav.is-open { display: block; }
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+.nav-link {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 1.05rem;
+  border-radius: var(--radius);
+  transition: all 0.2s var(--ease);
+}
+.nav-link:hover,
+.nav-link:focus-visible {
+  background: var(--color-teal-light);
+  color: var(--color-teal);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(
+    160deg,
+    #1A6B5A 0%,
+    #1D7A66 25%,
+    #B84C2A 70%,
+    #D4973B 100%
+  );
+  color: var(--color-text-on-dark);
+}
+
+/* Texture overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(212,151,59,0.25) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(26,107,90,0.3) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-3xl) var(--space-lg);
+  max-width: 52rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-lg);
+  animation: fadeInDown 0.8s var(--ease) both;
+}
+.hero-badge svg {
+  display: inline;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.1em;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-lg);
+  animation: fadeInUp 0.8s 0.15s var(--ease) both;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--color-accent-light);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  line-height: 1.6;
+  opacity: 0.92;
+  max-width: 38rem;
+  margin-inline: auto;
+  margin-bottom: var(--space-xl);
+  animation: fadeInUp 0.8s 0.3s var(--ease) both;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+  animation: fadeInUp 0.8s 0.45s var(--ease) both;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.9rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 100px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  line-height: 1.2;
+}
+.btn svg {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  background: var(--color-text-on-dark);
+  color: var(--color-primary-dark);
+  border-color: var(--color-text-on-dark);
+}
+.btn-primary:hover {
+  background: var(--color-accent-light);
+  border-color: var(--color-accent-light);
+  color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-text-on-dark);
+  border-color: rgba(255,255,255,0.45);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.7);
+  transform: translateY(-2px);
+}
+
+.btn-teal {
+  background: var(--color-teal);
+  color: var(--color-text-on-dark);
+  border-color: var(--color-teal);
+}
+.btn-teal:hover {
+  background: #14544A;
+  border-color: #14544A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26,107,90,0.3);
+}
+
+/* Decorative floating shapes */
+.hero-decor {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.hero-decor-1 {
+  width: 22rem;
+  height: 22rem;
+  border: 3px solid #fff;
+  top: -6rem;
+  right: -8rem;
+  animation: float 12s ease-in-out infinite;
+}
+.hero-decor-2 {
+  width: 14rem;
+  height: 14rem;
+  background: #fff;
+  bottom: -4rem;
+  left: -4rem;
+  animation: float 16s ease-in-out infinite reverse;
+}
+
+/* ========================================
+   SECTION COMMON STYLES
+   ======================================== */
+.section {
+  padding-block: var(--space-3xl);
+}
+.section-alt {
+  background: var(--color-bg-alt);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+.section-label {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+}
+.section-subtitle {
+  margin-top: var(--space-sm);
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+/* ========================================
+   TALLERES — CARDS
+   ======================================== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  border: 1px solid var(--color-border);
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  transition: height 0.3s var(--ease);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(44,24,16,0.08);
+}
+.card:hover::before { height: 6px; }
+
+.card:nth-child(1)::before { background: var(--color-primary); }
+.card:nth-child(2)::before { background: var(--color-teal); }
+.card:nth-child(3)::before { background: var(--color-accent); }
+.card:nth-child(4)::before { background: #7B5EA7; }
+.card:nth-child(5)::before { background: #3A7CA5; }
+.card:nth-child(6)::before { background: var(--color-primary-light); }
+
+.card-icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+  font-size: 1.5rem;
+}
+.card:nth-child(1) .card-icon { background: rgba(184,76,42,0.1); color: var(--color-primary); }
+.card:nth-child(2) .card-icon { background: rgba(26,107,90,0.1); color: var(--color-teal); }
+.card:nth-child(3) .card-icon { background: rgba(212,151,59,0.1); color: var(--color-accent); }
+.card:nth-child(4) .card-icon { background: rgba(123,94,167,0.1); color: #7B5EA7; }
+.card:nth-child(5) .card-icon { background: rgba(58,124,165,0.1); color: #3A7CA5; }
+.card:nth-child(6) .card-icon { background: rgba(232,166,144,0.15); color: var(--color-primary); }
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text);
+}
+.card-text {
+  color: var(--color-text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+/* ========================================
+   TIMELINE
+   ======================================== */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+  max-width: 48rem;
+  margin-inline: auto;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.7rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-teal), var(--color-accent));
+  border-radius: 3px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: var(--space-xl);
+}
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  left: -2.15rem;
+  top: 0.35rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  border: 3px solid var(--color-primary);
+  background: var(--color-bg);
+  z-index: 1;
+}
+.timeline-item:nth-child(even) .timeline-dot { border-color: var(--color-teal); }
+.timeline-item:nth-child(3n) .timeline-dot { border-color: var(--color-accent); }
+
+.timeline-year {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--color-primary);
+  margin-bottom: 0.15rem;
+}
+.timeline-item:nth-child(even) .timeline-year { color: var(--color-teal); }
+
+.timeline-desc {
+  color: var(--color-text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* ========================================
+   NOVEDADES
+   ======================================== */
+.novedad-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  transition: all 0.3s var(--ease);
+}
+.novedad-card:hover {
+  box-shadow: 0 12px 32px rgba(44,24,16,0.08);
+}
+.novedad-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: var(--color-bg-alt);
+}
+.novedad-body {
+  padding: var(--space-lg) var(--space-xl) var(--space-xl);
+}
+.novedad-date {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-sm);
+}
+.novedad-date svg {
+  width: 1em;
+  height: 1em;
+}
+.novedad-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+.novedad-text {
+  color: var(--color-text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin-bottom: var(--space-lg);
+}
+.novedad-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-teal);
+  text-decoration: none;
+  transition: all 0.2s var(--ease);
+}
+.novedad-link:hover {
+  color: var(--color-primary);
+  gap: var(--space-sm);
+}
+.novedad-link svg {
+  width: 1.1em;
+  height: 1.1em;
+  transition: transform 0.2s var(--ease);
+}
+.novedad-link:hover svg {
+  transform: translateX(3px);
+}
+
+@media (min-width: 640px) {
+  .novedad-card {
+    grid-template-columns: 280px 1fr;
+  }
+  .novedad-img {
+    height: 100%;
+    min-height: 240px;
+  }
+}
+@media (min-width: 1024px) {
+  .novedad-card {
+    grid-template-columns: 340px 1fr;
+  }
+}
+
+/* ========================================
+   CTA BANNER
+   ======================================== */
+.cta-banner {
+  background: linear-gradient(135deg, var(--color-teal) 0%, #1D7A66 100%);
+  color: var(--color-text-on-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.1);
+  top: -5rem;
+  right: -5rem;
+  pointer-events: none;
+}
+.cta-banner h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  margin-bottom: var(--space-sm);
+  position: relative;
+}
+.cta-banner p {
+  opacity: 0.9;
+  margin-bottom: var(--space-lg);
+  max-width: 32rem;
+  margin-inline: auto;
+  position: relative;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.site-footer {
+  background: var(--color-text);
+  color: rgba(253,248,244,0.85);
+  padding-block: var(--space-3xl) var(--space-xl);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.footer-heading {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-md);
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+.footer-contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.footer-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: 0.95rem;
+}
+.footer-contact-list svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  opacity: 0.7;
+}
+.footer-contact-list a {
+  color: rgba(253,248,244,0.85);
+  text-decoration-color: rgba(253,248,244,0.3);
+}
+.footer-contact-list a:hover {
+  color: var(--color-accent-light);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(253,248,244,0.12);
+  padding-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: center;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(1.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-0.8rem, 1.2rem); }
+}
+
+/* Scroll-reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   RESPONSIVE — TABLET & UP
+   ======================================== */
+@media (min-width: 640px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-toggle { display: none; }
+
+  .main-nav {
+    display: flex !important;
+    position: static;
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+  }
+  .nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+  }
+  .nav-link {
+    font-size: 0.92rem;
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .section {
+    padding-block: var(--space-4xl);
+  }
+  .timeline {
+    padding-left: 3rem;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ========================================
+   HIGH CONTRAST MODE
+   ======================================== */
+@media (forced-colors: active) {
+  .card { border: 2px solid; }
+  .btn { border: 2px solid; }
+  .timeline::before { background: CanvasText; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Skip Navigation -->
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+<!-- ======== HEADER ======== -->
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="#" class="logo" aria-label="Tenink Aiken — Inicio">
+      <span class="logo-icon" aria-hidden="true">TA</span>
+      <span>
+        <span class="logo-text">Tenink Aiken</span>
+        <span class="logo-tagline">Escuela Especial</span>
+      </span>
+    </a>
+
+    <button
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="main-navigation"
+      aria-label="Abrir menú de navegación"
+    >
+      <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <nav id="main-navigation" class="main-nav" aria-label="Navegación principal">
+      <ul class="nav-list" role="list">
+        <li><a href="#novedades" class="nav-link">Novedades</a></li>
+        <li><a href="#talleres" class="nav-link">Talleres</a></li>
+        <li><a href="#historia" class="nav-link">Historia</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ======== MAIN CONTENT ======== -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-decor hero-decor-1" aria-hidden="true"></div>
+    <div class="hero-decor hero-decor-2" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <span class="hero-badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+        1986 — 2026
+      </span>
+      <h1 id="hero-title">40 Años<br>Sembrando <em>Inclusión</em></h1>
+      <p class="hero-subtitle">
+        Desde 1986, acompañamos a cada estudiante en su camino único, construyendo juntos un mundo más justo, diverso y lleno de posibilidades.
+      </p>
+      <div class="hero-actions">
+        <a href="#historia" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Conocé nuestra historia
+        </a>
+        <a href="#talleres" class="btn btn-outline">
+          Propuesta Pedagógica
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVEDADES -->
+  <section id="novedades" class="section" aria-labelledby="novedades-title">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Novedades</span>
+        <h2 id="novedades-title" class="section-title">Últimas Noticias</h2>
+        <p class="section-subtitle">
+          Enterate de las actividades y proyectos más recientes de nuestra comunidad educativa.
+        </p>
+      </div>
+
+      <div class="novedad-card reveal">
+        <img
+          class="novedad-img"
+          src="images/malvinas-aulas.jpg"
+          alt="Estudiantes de la Escuela Especial N°5 durante la jornada de Malvinas en las aulas"
+          loading="lazy"
+        />
+        <div class="novedad-body">
+          <span class="novedad-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            7 de abril de 2026
+          </span>
+          <h3 class="novedad-title">Malvinas en las aulas: una experiencia de aprendizaje y memoria</h3>
+          <p class="novedad-text">
+            El pasado lunes 13, la Escuela Especial N°5 de El Calafate vivió otra jornada significativa en el marco de las acciones conmemorativas por los 40 años de su fundación. La actividad, centrada en la memoria y la soberanía, acercó a los estudiantes a la historia de Malvinas a través de una experiencia de aprendizaje inclusiva y participativa.
+          </p>
+          <a href="https://ahoracalafate.com.ar/contenido/39577/malvinas-en-las-aulas-una-experiencia-de-aprendizaje-y-memoria-en-la-escuela-esp" class="novedad-link" target="_blank" rel="noopener noreferrer">
+            Leer nota completa en Ahora Calafate
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TALLERES Y PROPUESTA PEDAGÓGICA -->
+  <section id="talleres" class="section section-alt" aria-labelledby="talleres-title">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Propuesta Pedagógica</span>
+        <h2 id="talleres-title" class="section-title">Talleres y Actividades</h2>
+        <p class="section-subtitle">
+          Cada taller es un espacio de encuentro, aprendizaje y expresión donde cada estudiante brilla.
+        </p>
+      </div>
+
+      <div class="cards-grid" role="list" aria-label="Lista de talleres">
+        <!-- Card 1 -->
+        <article class="card reveal" role="listitem">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <h3 class="card-title">Arte y Expresión Plástica</h3>
+          <p class="card-text">Pintura, escultura y técnicas mixtas como vehículos de comunicación y desarrollo de la motricidad fina.</p>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card reveal" role="listitem">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <h3 class="card-title">Música y Movimiento</h3>
+          <p class="card-text">Ritmo, canto e instrumentos para estimular la percepción sensorial, la coordinación y la alegría compartida.</p>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card reveal" role="listitem">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="card-title">Habilidades Sociales</h3>
+          <p class="card-text">Juegos cooperativos y dinámicas grupales para fortalecer vínculos, autonomía y convivencia en comunidad.</p>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card reveal" role="listitem">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="card-title">Tecnología Adaptada</h3>
+          <p class="card-text">Herramientas digitales y recursos de comunicación aumentativa para ampliar las posibilidades de cada alumno.</p>
+        </article>
+
+        <!-- Card 5 — Educación Física Inclusiva (con video) -->
+        <article class="card reveal" role="listitem">
+          <video
+            controls
+            preload="metadata"
+            playsinline
+            width="400"
+            height="250"
+            poster="images/taller-deporte.jpg"
+            aria-label="Video del taller de Educación Física Inclusiva"
+            style="width:100%; height:auto; border-radius:0.75rem; margin-bottom:1rem;"
+          >
+            <source src="videos/taller-educacion-fisica.mp4" type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
+          <div class="card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="card-title">Educación Física Inclusiva</h3>
+          <p class="card-text">Actividades motrices adaptadas, natación y deportes que promueven la salud integral y la confianza corporal.</p>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="card reveal" role="listitem">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="card-title">Alfabetización Funcional</h3>
+          <p class="card-text">Lectura, escritura y cálculo con abordajes personalizados que respetan los tiempos y formas de aprender de cada uno.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LÍNEA DE TIEMPO -->
+  <section id="historia" class="section" aria-labelledby="historia-title">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Nuestra Historia</span>
+        <h2 id="historia-title" class="section-title">40 Años de Camino Compartido</h2>
+        <p class="section-subtitle">
+          Hitos que marcan cuatro décadas de compromiso con la educación y la inclusión.
+        </p>
+      </div>
+
+      <div class="timeline" role="list" aria-label="Línea de tiempo histórica de Tenink Aiken">
+        <div class="timeline-item reveal" role="listitem">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <span class="timeline-year">1986</span>
+          <p class="timeline-desc">Fundación de Tenink Aiken con un grupo de 12 estudiantes y un equipo de docentes comprometidos con una educación diferente.</p>
+        </div>
+        <div class="timeline-item reveal" role="listitem">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <span class="timeline-year">1994</span>
+          <p class="timeline-desc">Inauguración del edificio propio y apertura de los primeros talleres de arte y expresión corporal.</p>
+        </div>
+        <div class="timeline-item reveal" role="listitem">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <span class="timeline-year">2003</span>
+          <p class="timeline-desc">Incorporación de tecnología asistiva y programas de comunicación aumentativa y alternativa.</p>
+        </div>
+        <div class="timeline-item reveal" role="listitem">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <span class="timeline-year">2012</span>
+          <p class="timeline-desc">Reconocimiento provincial por innovación pedagógica. Crecimiento a más de 120 estudiantes.</p>
+        </div>
+        <div class="timeline-item reveal" role="listitem">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <span class="timeline-year">2020</span>
+          <p class="timeline-desc">Adaptación al acompañamiento virtual durante la pandemia, garantizando la continuidad pedagógica de cada alumno.</p>
+        </div>
+        <div class="timeline-item reveal" role="listitem">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <span class="timeline-year">2026</span>
+          <p class="timeline-desc">Celebramos 40 años con nuevos proyectos de inclusión laboral y un festival abierto a toda la comunidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="section" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2 id="cta-title">Sumate a nuestra comunidad</h2>
+        <p>Familias, profesionales y voluntarios: hay un lugar para vos en Tenink Aiken.</p>
+        <a href="#contacto" class="btn btn-primary">Contactanos</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======== FOOTER ======== -->
+<footer id="contacto" class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- About -->
+      <div>
+        <h3 class="footer-heading">Tenink Aiken</h3>
+        <p class="footer-text">
+          Escuela de Educación Especial comprometida con el derecho a aprender de cada persona, respetando su singularidad y promoviendo su participación plena en la sociedad.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="footer-heading">Contacto</h3>
+        <ul class="footer-contact-list" aria-label="Datos de contacto">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+5401234567890">(01) 2345-67890</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="/cdn-cgi/l/email-protection#771e191118370312191e191c161e1c121959121302591605"><span class="__cf_email__" data-cfemail="355c5b535a7541505b5c5b5e545c5e505b1b5051401b5447">[email&#160;protected]</span></a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Location -->
+      <div>
+        <h3 class="footer-heading">Ubicación</h3>
+        <ul class="footer-contact-list" aria-label="Dirección">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Av. de la Inclusión 1986<br>El Calafate, Santa Cruz<br>Argentina</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Lunes a Viernes<br>8:00 — 16:00 hs</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tenink Aiken — Escuela Especial. Todos los derechos reservados.</p>
+      <p>Sitio diseñado con accesibilidad como prioridad.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ======== SCRIPTS ======== -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function() {
+  'use strict';
+
+  // --- Mobile Nav Toggle ---
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('main-navigation');
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() {
+      const isOpen = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!isOpen));
+      this.setAttribute('aria-label', isOpen ? 'Abrir menú de navegación' : 'Cerrar menú de navegación');
+      nav.classList.toggle('is-open', !isOpen);
+    });
+
+    // Close nav when a link is clicked
+    nav.querySelectorAll('.nav-link').forEach(function(link) {
+      link.addEventListener('click', function() {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Abrir menú de navegación');
+        nav.classList.remove('is-open');
+      });
+    });
+  }
+
+  // --- Header scroll shadow ---
+  const header = document.querySelector('.site-header');
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        header.classList.toggle('scrolled', window.scrollY > 20);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // --- Scroll Reveal (IntersectionObserver) ---
+  const revealElements = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(function(el, i) {
+      el.style.transitionDelay = (i % 3) * 0.1 + 's';
+      observer.observe(el);
+    });
+  } else {
+    // Fallback: show everything
+    revealElements.forEach(function(el) {
+      el.classList.add('is-visible');
+    });
+  }
+
+  // --- Smooth scroll for anchor links (fallback for older browsers) ---
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrol
