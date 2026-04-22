@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="40 Años, 40 Acciones — Proyecto del 40° Aniversario de la Escuela Especial N°5 Tenink Aiken de El Calafate." />
+<title>40 Años, 40 Acciones — Tenink Aiken</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --color-primary: #B84C2A;
+  --color-primary-dark: #8C3518;
+  --color-primary-light: #E8A690;
+  --color-accent: #D4973B;
+  --color-accent-light: #F5E6C8;
+  --color-teal: #1A6B5A;
+  --color-teal-light: #E6F2EF;
+  --color-bg: #FDF8F4;
+  --color-bg-alt: #F5EDE6;
+  --color-surface: #FFFFFF;
+  --color-text: #2C1810;
+  --color-text-secondary: #5C4033;
+  --color-text-on-dark: #FDF8F4;
+  --color-border: #D4C4B8;
+  --color-focus: #1A6B5A;
+  --color-done: #1A6B5A;
+  --color-done-light: #E6F2EF;
+  --font-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', Tahoma, sans-serif;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --max-width: 72rem;
+  --radius: 0.75rem;
+  --radius-lg: 1.25rem;
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--color-teal); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--color-primary); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; border-radius: 3px; }
+
+.container { width: 100%; max-width: var(--max-width); margin-inline: auto; padding-inline: var(--space-lg); }
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(253,248,244,0.92);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-block: var(--space-sm); gap: var(--space-md);
+}
+.logo {
+  display: flex; align-items: center; gap: var(--space-sm);
+  text-decoration: none; color: var(--color-text);
+}
+.logo-icon {
+  width: 2.5rem; height: 2.5rem; border-radius: 50%; object-fit: cover;
+}
+.logo-text { font-family: var(--font-display); font-size: 1.15rem; line-height: 1.2; }
+.logo-tagline { font-family: var(--font-body); font-size: 0.72rem; color: var(--color-text-secondary); letter-spacing: 0.06em; text-transform: uppercase; }
+.back-link {
+  display: inline-flex; align-items: center; gap: var(--space-xs);
+  font-weight: 600; font-size: 0.95rem; text-decoration: none;
+  color: var(--color-teal); transition: all 0.2s;
+}
+.back-link:hover { color: var(--color-primary); gap: var(--space-sm); }
+.back-link svg { width: 1.1em; height: 1.1em; }
+
+/* Page Hero */
+.page-hero {
+  background: linear-gradient(160deg, #1A6B5A 0%, #1D7A66 25%, #B84C2A 70%, #D4973B 100%);
+  color: var(--color-text-on-dark);
+  padding: var(--space-3xl) 0;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.page-hero::after {
+  content: ''; position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.page-hero-content { position: relative; z-index: 2; }
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  line-height: 1.15; margin-bottom: var(--space-sm);
+}
+.page-hero h1 em { font-style: italic; color: var(--color-accent-light); }
+.page-hero p { font-size: 1.1rem; opacity: 0.9; max-width: 36rem; margin-inline: auto; }
+
+/* Progress bar */
+.progress-section { padding: var(--space-xl) 0; background: var(--color-bg-alt); }
+.progress-bar-wrap {
+  background: var(--color-border); border-radius: 100px; height: 12px;
+  overflow: hidden; margin-bottom: var(--space-xs);
+}
+.progress-bar-fill {
+  height: 100%; border-radius: 100px;
+  background: linear-gradient(90deg, var(--color-teal), var(--color-accent));
+  transition: width 0.5s var(--ease);
+}
+.progress-text {
+  display: flex; justify-content: space-between; font-size: 0.85rem;
+  color: var(--color-text-secondary); font-weight: 600;
+}
+
+/* Fundamentacion */
+.section { padding-block: var(--space-3xl); }
+.section-alt { background: var(--color-bg-alt); }
+.section-header { text-align: center; margin-bottom: var(--space-2xl); }
+.section-label {
+  display: inline-block; font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  line-height: 1.18; color: var(--color-text);
+}
+.section-text {
+  max-width: 48rem; margin-inline: auto; color: var(--color-text-secondary);
+  font-size: 1rem; line-height: 1.75; text-align: justify;
+}
+
+/* Acciones grid */
+.acciones-grid {
+  display: grid; grid-template-columns: 1fr; gap: var(--space-md);
+}
+.accion {
+  display: flex; align-items: flex-start; gap: var(--space-md);
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: var(--space-lg);
+  transition: all 0.2s var(--ease);
+}
+.accion:hover { box-shadow: 0 4px 16px rgba(44,24,16,0.06); }
+.accion.done { background: var(--color-done-light); border-color: var(--color-done); }
+.accion-num {
+  min-width: 2.5rem; height: 2.5rem; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.9rem;
+  background: var(--color-bg-alt); color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+.accion.done .accion-num {
+  background: var(--color-done); color: var(--color-text-on-dark);
+}
+.accion-text { font-size: 0.95rem; line-height: 1.6; color: var(--color-text); }
+.accion.done .accion-text { color: var(--color-teal); }
+.accion-badge {
+  display: inline-block; font-size: 0.7rem; font-weight: 700;
+  background: var(--color-done); color: var(--color-text-on-dark);
+  padding: 0.15rem 0.5rem; border-radius: 100px;
+  text-transform: uppercase; letter-spacing: 0.05em; margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Equipo */
+.equipo-grid {
+  display: grid; grid-template-columns: 1fr; gap: var(--space-md);
+  max-width: 40rem; margin-inline: auto;
+}
+.equipo-card {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: var(--space-lg); text-align: center;
+}
+.equipo-role {
+  font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--color-primary); margin-bottom: var(--space-xs);
+}
+.equipo-name { font-family: var(--font-display); font-size: 1.1rem; color: var(--color-text); }
+
+/* Footer */
+.site-footer {
+  background: var(--color-text); color: rgba(253,248,244,0.85);
+  padding: var(--space-2xl) 0; text-align: center; font-size: 0.9rem;
+}
+.site-footer a { color: var(--color-accent-light); }
+
+@media (min-width: 640px) {
+  .acciones-grid { grid-template-columns: repeat(2, 1fr); }
+  .equipo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .acciones-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (forced-colors: active) {
+  .accion { border: 2px solid; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="Volver al inicio">
+      <img src="images/logo-escuela.jpg" alt="" class="logo-icon" />
+      <span>
+        <span class="logo-text">Tenink Aiken</span>
+        <span class="logo-tagline">Escuela Especial N°5</span>
+      </span>
+    </a>
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Volver al inicio
+    </a>
+  </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container page-hero-content">
+    <h1>40 Años, <em>40 Acciones</em></h1>
+    <p>Un proyecto que celebra cuatro décadas de inclusión con acciones concretas que involucran a toda la comunidad educativa durante el ciclo lectivo 2026.</p>
+  </div>
+</section>
+
+<!-- Progress -->
+<section class="progress-section">
+  <div class="container">
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" style="width: 17.5%;"></div>
+    </div>
+    <div class="progress-text">
+      <span>7 de 40 acciones realizadas</span>
+      <span>17.5%</span>
+    </div>
+  </div>
+</section>
+
+<!-- Fundamentación -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Sobre el Proyecto</span>
+      <h2 class="section-title">Fundamentación</h2>
+    </div>
+    <p class="section-text">
+      La Escuela Especial N°5 "Tenink Aiken" constituye desde hace cuatro décadas un pilar fundamental en la educación inclusiva, promoviendo el desarrollo integral, la autonomía y la participación social de jóvenes y adolescentes con discapacidad en nuestra comunidad de El Calafate.
+    </p>
+    <p class="section-text" style="margin-top:var(--space-md);">
+      Celebrar sus 40 años representa una oportunidad para resignificar su historia, valorar los logros alcanzados y fortalecer el compromiso con la educación, la inclusión y los derechos de sus estudiantes. La propuesta "40 Años, 40 Acciones" busca promover experiencias significativas que involucren activamente a los estudiantes como protagonistas, favoreciendo su participación, el sentido de pertenencia y la construcción de vínculos con nuestra comunidad.
+    </p>
+  </div>
+</section>
+
+<!-- Equipo -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Equipo</span>
+      <h2 class="section-title">Quiénes lo hacen posible</h2>
+    </div>
+    <div class="equipo-grid">
+      <div class="equipo-card">
+        <div class="equipo-role">Directora</div>
+        <div class="equipo-name">Prof. Marcelina Camino</div>
+      </div>
+      <div class="equipo-card">
+        <div class="equipo-role">Vicedirectora</div>
+        <div class="equipo-name">Prof. Florencia Pio</div>
+      </div>
+    </div>
+    <div style="max-width:40rem; margin:var(--space-lg) auto 0; text-align:center;">
+      <p style="font-size:0.9rem; color:var(--color-text-secondary); line-height:1.6;">
+        <strong>Coordinadoras:</strong> Prof. Emilce Zalazar, Prof. Graciela Rodriguez, Prof. Yanina Fernández, Prof. Eliana Boggi, Prof. Alejandra Gallippi, Prof. Sabrina Aragón, Prof. Noemi Hoyos.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 40 Acciones -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">El Plan Completo</span>
+      <h2 class="section-title">Las 40 Acciones</h2>
+    </div>
+
+    <div class="acciones-grid">
+
+      <div class="accion done">
+        <div class="accion-num">1</div>
+        <div class="accion-text">Talleres con familias a cargo del equipo técnico, partiendo de la exploración de soportes escritos que reflejan nuestra historia.<span class="accion-badge">Realizada</span></div>
+      </div>
+
+      <div class="accion done">
+        <div class="accion-num">2</div>
+        <div class="accion-text">Visita de Veteranos de Malvinas y estampado de las islas en delantales. Entrega de cartilla sobre la Marcha de Malvinas con pictogramas.<span class="accion-badge">Realizada</span></div>
+      </div>
+
+      <div class="accion done">
+        <div class="accion-num">3</div>
+        <div class="accion-text">Invitación a la comunidad educativa para pintar la parte exterior de la escuela, en colaboración con la Coordinación General Regional Sudoeste.<span class="accion-badge">Realizada</span></div>
+      </div>
+
+      <div class="accion done">
+        <div class="accion-num">4</div>
+        <div class="accion-text">Limpieza del parque de la escuela invitando a las familias y toda la comunidad educativa para colaborar.<span class="accion-badge">Realizada</span></div>
+      </div>
+
+      <div class="accion done">
+        <div class="accion-num">5</div>
+        <div class="accion-text">Socialización con las familias y estudiantes sobre el nombre de la escuela y nuestro escudo "sentido de pertenencia".<span class="accion-badge">Realizada</span></div>
+      </div>
+
+      <div class="accion done">
+        <div class="accion-num">6</div>
+        <div class="accion-text">Elaboración de folletos sobre el cumpleaños de la escuela y distribución en instituciones cercanas acompañadas de la murga.<span class="accion-badge">Realizada</span></div>
+      </div>
+
+      <div class="accion done">
+        <div class="accion-num">7</div>
+        <div class="accion-text">Difusión del cumpleaños, historia y servicios de la escuela en medios de comunicación de El Calafate.<span class="accion-badge">Realizada</span></div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">8</div>
+        <div class="accion-text">Elaboración de un pin de los 40 años para lucir el día del acto.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">9</div>
+        <div class="accion-text">Elaboración de una memoria digital de la escuela y compartirla con las familias (digitalización de archivos históricos).</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">10</div>
+        <div class="accion-text">Charla a la comunidad sobre los servicios y articulación entre Escuela Especial "Tenink Aiken" y la Asociación "Abriendo Caminos".</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">11</div>
+        <div class="accion-text">Charla con la Cámara de Comercio sobre normativa vigente en capacitación e inclusión laboral de personas con discapacidad.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">12</div>
+        <div class="accion-text">Trabajo con cooperadora y Rotary Club para contar con juegos nuevos y adaptados en el parque de la escuela.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">13</div>
+        <div class="accion-text">Culminación del proyecto institucional "Aula multisensorial" que se gestó el año pasado.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">14</div>
+        <div class="accion-text">Escuela Abierta para la Semana de la Educación Especial a cargo de toda la escuela, incluyendo Inclusión.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">15</div>
+        <div class="accion-text">Jornada recreativa para compartir con los abuelos del Hogar de Ancianos a cargo de Educación Física y Música.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">16</div>
+        <div class="accion-text">Entrega de Kit de Biblioteca (señaladores y reglas de lectura) a escuelas de la localidad a cargo del grupo de Taller.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">17</div>
+        <div class="accion-text">Pintado de un mural con docentes, estudiantes y artistas locales dedicados al arte.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">18</div>
+        <div class="accion-text">Elaboración de calendarios 2027 para entregar en hoteles o comercios de la localidad.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">19</div>
+        <div class="accion-text">Implementación de códigos QR en distintas partes de la ciudad para que conozcan la escuela.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">20</div>
+        <div class="accion-text">Charlas en escuelas y otros ámbitos sobre neurodiversidad para promover la cultura y práctica inclusiva.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">21</div>
+        <div class="accion-text">Jornadas deportivas sobre deporte adaptado abiertas a la comunidad.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">22</div>
+        <div class="accion-text">Intercambio con alguna escuela especial de la provincia, presencial o virtual, mediante mensajes escritos.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">23</div>
+        <div class="accion-text">Jornada de Arte en la escuela con invitación a diferentes artistas locales.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">24</div>
+        <div class="accion-text">Semana de la Ciencia y Tecnología con invitación a otras escuelas para compartir experiencias.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">25</div>
+        <div class="accion-text">Semana de la Niñez: jornada recreativa compartida con el jardín más cercano.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">26</div>
+        <div class="accion-text">"Turistas por un día" — Servicio a Terceros en conjunto con estudiantes de turismo del Padre Agostini.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">27</div>
+        <div class="accion-text">Semana de la Familia: jornada al aire libre con barreteadas, picnics, convivencia y juegos.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">28</div>
+        <div class="accion-text">Apertura de la "Muestra artística anual" a cargo de docentes de Música y Educación Física.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">29</div>
+        <div class="accion-text">Trabajo con la cooperadora para pintar el sector aula e interior del gimnasio.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">30</div>
+        <div class="accion-text">Creación del vivero en la escuela.</div>
+      </div>
+
+      <div class="accion done">
+        <div class="accion-num">31</div>
+        <div class="accion-text">Creación de una canción para la escuela a cargo del Prof. de Música Matías Andrade.<span class="accion-badge">Realizada</span></div>
+      </div>
+
+      <div class="accion done">
+        <div class="accion-num">32</div>
+        <div class="accion-text">Creación de una página web a cargo del Prof. de Música Matías Andrade.<span class="accion-badge">Realizada</span></div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">33</div>
+        <div class="accion-text">Charla sobre la vida y obra del General Manuel Belgrano a cargo de la Asociación Belgraniana.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">34</div>
+        <div class="accion-text">Diario escolar o revista digital con publicaciones sobre temas de la comunidad.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">35</div>
+        <div class="accion-text">Cápsula del tiempo literaria: cada estudiante o docente escribe una carta a su "yo futuro" o un mensaje para el próximo aniversario.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">36</div>
+        <div class="accion-text">Intercambio intergeneracional: invitación a exestudiantes para que cuenten historias sobre cómo era la escuela.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">37</div>
+        <div class="accion-text">Festival de talentos: jornadas recreativas para mostrar las habilidades artísticas de los estudiantes.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">38</div>
+        <div class="accion-text">Muro Virtual de Deseos (Padlet): mural digital donde estudiantes, docentes y padres escriban poemas o mensajes.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">39</div>
+        <div class="accion-text">Articulación con el Centro Educativo Joven Labrador, taller de soldadura para reparación de rejas.</div>
+      </div>
+
+      <div class="accion">
+        <div class="accion-num">40</div>
+        <div class="accion-text">Maratón o caminata: evento deportivo abierto a la comunidad bajo el lema del aniversario.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Escuela Especial N°5 "Tenink Aiken" — El Calafate</p>
+    <p style="margin-top:var(--space-xs);"><a href="index.html">Volver al inicio</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
